@@ -1,10 +1,8 @@
-Certainly! Here's a sample `README.md` file for your project in English:
 
----
 
 # Android App Automation Testing with Appium and WebdriverIO
 
-This project demonstrates how to automate the testing of an Android application using **Appium** and **WebdriverIO** with **JavaScript**. The tests include logging in with both valid and invalid credentials in the mobile application and verifying the correct behavior of the app.
+This project demonstrates how to automate the testing of an Android application using **Appium** and **WebdriverIO** with **JavaScript**. 
 
 ## Prerequisites
 
@@ -15,6 +13,7 @@ Before running the tests, make sure you have the following installed:
 - **Android Studio** with **Android SDK** – [Install Android Studio](https://developer.android.com/studio)
 - **Appium** – [Install Appium](http://appium.io/docs/en/about-appium/intro/)
 - **WebdriverIO** – [WebdriverIO Documentation](https://webdriver.io/)
+- **App tested** – [Saucelabs Android App](https://github.com/saucelabs/sample-app-mobile/releases)
 
 ## Setup
 
@@ -62,29 +61,9 @@ This will run all the tests defined in your `wdio.conf.js` configuration file.
 
 ## Test File Structure
 
-Your tests are written in **Mocha** and run with **WebdriverIO**. The tests are located in the `test/specs/` directory.
+The tests are written in **Mocha** and run with **WebdriverIO**. The tests are located in the `test/specs/` directory.
 
 - **`e2e.js`**: Contains the test cases for invalid and valid login scenarios.
-
-Here’s an example of a test:
-
-```javascript
-describe('Android App Test', () => {
-  it('should not login with invalid credentials', async () => {
-    await $('~test-Username').setValue("wrongUser");
-    await $('~test-Password').setValue("wrongPassword");
-    await $('~test-LOGIN').click();
-    await expect($('//android.widget.TextView[@text="Username and password do not match any user in this service."]')).toBeDisplayed();
-  });
-
-  it('should login with valid credentials', async () => {
-    await $('~test-Username').setValue("standard_user");
-    await $('~test-Password').setValue("secret_sauce");
-    await $('~test-LOGIN').click();
-    await expect($('//android.widget.TextView[@text="PRODUCTS"]')).toBeDisplayed();
-  });
-});
-```
 
 ## Configuration
 
@@ -108,5 +87,3 @@ Ensure that you define the correct `appPackage` and `appActivity` for your app i
 - [Android Studio](https://developer.android.com/studio)
 
 ---
-
-This should give users a good overview of the project, its setup, and how to run the tests. Feel free to adapt the README according to your specific project requirements.
